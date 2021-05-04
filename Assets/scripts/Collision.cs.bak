@@ -1,0 +1,363 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Collision : MonoBehaviour
+{
+    Vector3 posicionInicialTejo = new Vector3(-8.28f,-1.975775f,0);
+    string NOMBRE_TEJO = "tejoAnim1";
+    string NOMBRE_TEJO_GUIA = "tejoVistaSup800b";
+    string NOMBRE_PLAYER = "player1a";
+    string NOMBRE_CPU = "lanzadorCPU";
+    string NOMBRE_ARCILLA = "arcillaTejo800";
+    string NOMBRE_MECHA_1 = "arcillaMecha1";
+    string NOMBRE_MECHA_BOCIN = "arcillaMechaBocin";
+    string NOMBRE_MECHA_3 = "arcillaMecha3";
+    string NOMBRE_QUAD_PISO = "QuadPiso";
+    string TEXT_SCORE_PLAYER = "textScorePlayer";
+    string TEXT_SCORE_PLAYER2 = "textScorePlayer2";
+
+    string TEXT_SCORE_CPU = "textScoreCPU";
+    string TEXT_SCORE_CPU2 = "textScoreCPU2";
+    string TEXT_SCORE_TO_WIN = "textScoreToWin";
+
+    string TEXT_WINNER = "TextWinner";
+    string TEXT_SCORE_MECHA = "textScoreMecha";
+    string TEXT_SCORE_MECHA2 = "textScoreMecha2";
+    string TEXT_TURNO = "TextTurno";
+    string BUTTON_NEW_GAME = "ButtonNewGame";
+    string NAME_CANVAS = "Canvas";
+    string BOOL_TEJO_EN_AIRE = "tejoEnAire";
+    string BOOL_ACTIVAR_LANCE = "activarLance";
+    string BOOL_ACTIVAR_LANCE_CPU = "activarLanceCPU";
+    string BOOL_FIN_LANCE = "finLance";
+    string BOOL_FIN_LANCE_CPU = "finLanceCPU";
+    string BOOL_NUEVO_INTENTO = "nuevoIntento";
+    string LABEL_SCORE_PLAYER = "score Player : ";
+    string LABEL_SCORE_CPU = "score CPU : ";
+    int scorePlayer = 0;
+    int scoreCPU = 0; 
+    int PUNTAJE_BOCIN = 6;
+    int PUNTAJE_MECHA = 3;
+    int PUNTAJE_MANO = 1;
+    int PUNTAJE_OBJETIVO_27 = 27;
+    int PUNTAJE_OBJETIVO_10 = 10;
+    int PUNTAJE_OBJETIVO_5 = 5;
+    bool activadoLanceCPU = false;
+    bool activadoLancePlayer = false;
+    bool mostrandoCPU = false;
+    bool finDeJuego = false;
+    int turno =  0;
+    int incremento = 0;
+    int TURNO_PLAYER = 0;
+    int TURNO_CPU = 1;
+    int turnosPlayer = 1;
+    int turnosCPU = 0;
+    int scoreWin;
+    float tiempo = 0;
+
+     static int stateLanzando = Animator.StringToHash("Base Layer.lanzando");		
+    static int stateIdle = Animator.StringToHash("Base Layer.idle");		
+    static int stateReposo = Animator.StringToHash("Base Layer.reposo");		
+    static int stateTejoEnAire = Animator.StringToHash("Base Layer.tejoEnAire");
+    // Start is called before the first frame update
+    void Start()
+    {
+        Text  textToWin =  GameObject.Find(TEXT_SCORE_TO_WIN).GetComponent<Text>();
+        scoreWin = PUNTAJE_OBJETIVO_10;
+        textToWin.text = textToWin.text+scoreWin;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Rigidbody2D rbTejo = GetComponent<Rigidbody2D>();
+        Transform transformTejo = GetComponent<Transform>();
+        float distancia = Vector2.Distance( transformTejo.position, posicionInicialTejo);
+        Transform transformPiso = GameObject.Find(NOMBRE_QUAD_PISO).GetComponent<Transform>();
+        Text textTurno = GameObject.Find(TEXT_TURNO).GetComponent<Text>();
+        //Debug.Log ("**** magnitude  "+rbTejo.velocity.magnitude+" posicion "+transformTejo.position+" distancia "+distancia+
+        //" turnos player "+turnosPlayer+" turnos cpu "+turnosCPU+" incremento "+incremento);
+        incremento++;
+        tiempo += Time.deltaTime;
+        Debug.Log ("**** tiempo "+tiempo+" modulo tiempo%1 "+tiempo%1);
+        if ( !finDeJuego  ){
+             if( ( (rbTejo.velocity.magnitude < 1 && distancia > 1 ) || transformTejo.position.y < transformPiso.position.y) ){
+                //Invoke("nuevoIntento",1);//activarLanceCPU
+                //// analisis: si lo q hace el cambio de turno es el contador de turnos se deberia dejar al final del lance el incremento que seria la colision
+                //// al final del lance
+                if( turnosPlayer > turnosCPU){
+                    Invoke("activarLanceCPU",0.2f);// estaba en 0.1f
+                    //activadoLanceCPU = true;
+                    turno = TURNO_CPU;
+                    textTurno.text = "TURNO CPU";
+                } else if( turno != TURNO_PLAYER ){
+                    /// la colision esta tomando la colision para el cpu antes que la logica de nuevo intento arranque
+                    Invoke("nuevoIntento",1f);
+                    ///activadoLancePlayer = true;
+                    turno = TURNO_PLAYER;//// se va cambiar a nuevointento para ver si resuelve in bug q suma los aciertos de la cpu al player
+                    textTurno.text = "TURNO PLAYER";
+                    validarGanoPlayer();
+                }
+            }
+        }
+    }
+    void validarGanoPlayer(){
+        Text textWinner = GameObject.Find(TEXT_WINNER).GetComponent<Text>();
+        if( scorePlayer > scoreWin && turnosPlayer == turnosCPU && turno == TURNO_PLAYER){
+                textWinner.text = "Player WIN";
+                finJuego();
+        }
+    }
+    void finJuego(){
+        SpriteRenderer spriteCPU = GameObject.Find (NOMBRE_CPU).gameObject.GetComponent<SpriteRenderer>();
+        spriteCPU.sortingOrder = 0;
+        SpriteRenderer spritePlayer = GameObject.Find (NOMBRE_PLAYER).gameObject.GetComponent<SpriteRenderer>();
+        spritePlayer.sortingOrder = 0;
+        //Button buttonNewGame = GameObject.Find(BUTTON_NEW_GAME).GetComponent<Button>();
+        Button buttonNewGame = GameObject.Find (NAME_CANVAS).GetComponent<Transform>().Find(BUTTON_NEW_GAME).GetComponent<Button>();
+        buttonNewGame.gameObject.SetActive(true);
+        finDeJuego = true;
+        Rigidbody2D rbTejo = GameObject.Find (NOMBRE_TEJO).GetComponent<Rigidbody2D>();
+        rbTejo.bodyType = RigidbodyType2D.Kinematic;
+        rbTejo.velocity = Vector3.zero;
+        Vector3 dis = new Vector3(-1.9f,-0.5f,0.0f);
+        int maxVel = 0;
+        scriptLanceTejo script = GameObject.Find (NOMBRE_CPU).GetComponent<scriptLanceTejo>();
+        script.copiarValores(dis, maxVel );
+        GameObject.Find (NOMBRE_TEJO).GetComponent<Transform>().position = posicionInicialTejo;
+        Text textWinner = GameObject.Find(TEXT_WINNER).GetComponent<Text>();
+        textWinner.text = "CPU WIN";
+        //botonStart.gameObject.SetActive(true); 
+    }
+    public void nuevoJuego(){
+        Debug.Log ("**** nuevo juego ");
+        /* SpriteRenderer spriteCPU = GameObject.Find (NOMBRE_CPU).gameObject.GetComponent<SpriteRenderer>();
+        spriteCPU.sortingOrder = 0;
+        SpriteRenderer spritePlayer = GameObject.Find (NOMBRE_PLAYER).gameObject.GetComponent<SpriteRenderer>();
+        spritePlayer.sortingOrder = 3;
+        GameObject.Find (NOMBRE_TEJO).GetComponent<Transform>().position = posicionInicialTejo;
+        Rigidbody2D rbTejo = GameObject.Find (NOMBRE_TEJO).GetComponent<Rigidbody2D>();
+        rbTejo.bodyType = RigidbodyType2D.Kinematic;
+        rbTejo.velocity = Vector3.zero;*/
+        Text textScorePlayer = GameObject.Find(TEXT_SCORE_PLAYER).GetComponent<Text>();
+        Text textScoreCPU = GameObject.Find(TEXT_SCORE_CPU).GetComponent<Text>();
+        textScorePlayer.text = LABEL_SCORE_PLAYER+0;
+        textScoreCPU.text = LABEL_SCORE_CPU+0;
+        turnosPlayer = 1;
+        turnosCPU = 0;
+        scorePlayer = 0;
+        scoreCPU = 0;
+        finDeJuego = false;
+        nuevoIntento();
+        Button buttonNewGame = GameObject.Find (NAME_CANVAS).GetComponent<Transform>().Find(BUTTON_NEW_GAME).GetComponent<Button>();
+        buttonNewGame.gameObject.SetActive(false);
+        Text textWinner = GameObject.Find(TEXT_WINNER).GetComponent<Text>();
+        textWinner.text = "";
+    }
+      void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log ("**** colision detectada "+collision.gameObject.name+" turno "+turno);
+        Text textScorePlayer = GameObject.Find(TEXT_SCORE_PLAYER).GetComponent<Text>();
+        Text textScoreCPU = GameObject.Find(TEXT_SCORE_CPU).GetComponent<Text>();
+        Text textScoreMecha = GameObject.Find(TEXT_SCORE_MECHA).GetComponent<Text>();
+        Text textWinner = GameObject.Find(TEXT_WINNER).GetComponent<Text>();
+        if(  collision.gameObject.name.Equals(NOMBRE_ARCILLA) || collision.gameObject.name.Equals("QuadPiso")
+        || collision.gameObject.name.Equals("QuadPared") && GameObject.Find (NOMBRE_PLAYER) != null ){
+             Animator animPlayer = GameObject.Find (NOMBRE_PLAYER).GetComponent<Animator>();
+             animPlayer.SetBool(BOOL_ACTIVAR_LANCE,false);/// se desactiva el lance
+             ///aki ya q parece q si se espera un segundo a q lo tome el invoke, parece que el ciclo
+             /// de la animacion se alcanza tan rapido q lo ejecuta dos veces
+             //Invoke("nuevoIntento",1); /// se mueve al update
+        }
+        if(  collision.gameObject.name.Equals(NOMBRE_MECHA_1)|| collision.gameObject.name.Equals(NOMBRE_MECHA_3) ){
+            if( turno == TURNO_PLAYER ){
+                Debug.Log ("**** sumando para player "+scorePlayer+"+"+PUNTAJE_MECHA);
+                scorePlayer+=PUNTAJE_MECHA;
+                textScorePlayer.text = LABEL_SCORE_PLAYER+scorePlayer;
+                textScoreMecha.text = "+3 Mecha";
+            } else {
+                Debug.Log ("**** sumando para cpu "+scoreCPU+"+"+PUNTAJE_MECHA);
+                scoreCPU+=PUNTAJE_MECHA;
+                textScoreCPU.text = LABEL_SCORE_CPU+scoreCPU;
+                textScoreMecha.text = "+3 Mecha";
+                
+            }
+            /// se lleva el tejo a la posicion inicial para evitar que detecte otra colision y se asigna el siguiente turno q es del player 
+            //reposicionarTejo();
+            desactivarColliderMechas();
+            relentizarTejo();
+        } 
+        if(  collision.gameObject.name.Equals(NOMBRE_MECHA_BOCIN) ){
+            if( turno == TURNO_PLAYER ){
+                Debug.Log ("**** sumando para player "+scorePlayer+"+"+PUNTAJE_BOCIN);
+                scorePlayer+=PUNTAJE_BOCIN;
+                textScorePlayer.text = LABEL_SCORE_PLAYER+scorePlayer;
+                textScoreMecha.text = "+6 Moñona";
+               
+            } else {
+                Debug.Log ("**** sumando para cpu "+scoreCPU+"+"+PUNTAJE_BOCIN);
+                scoreCPU+=PUNTAJE_BOCIN;
+                textScoreCPU.text = LABEL_SCORE_CPU+scoreCPU;
+                textScoreMecha.text = "+6 Moñona";
+            }
+            /// se lleva el tejo a la posicion inicial para evitar que detecte otra colision y se asigna el siguiente turno q es del player 
+            //reposicionarTejo();
+            desactivarColliderMechas();
+            relentizarTejo();
+        } 
+        
+        if( (scoreCPU > scoreWin || scorePlayer > scoreWin) && !finDeJuego ){
+            /// esta logica ha traido varios problemas, pero ni modo , si la cpu gana debe revisarse de inmediato
+            ///la logica para ganar del player que es el que empieza turno deberia ser validada cuando empieza su turno, tal vez en update
+            if( scoreCPU > scoreWin ){
+                textWinner.text = "CPU WIN";
+                finJuego();
+                Debug.Log ("**** pasando por aki cpu win");
+            } /*else if( turnosPlayer == turnosCPU && turno == TURNO_PLAYER){
+                textWinner.text = "Player WIN";
+            }*/
+        }
+        Debug.Log ("**** scorePlayer "+scorePlayer);
+        /*foreach (ContactPoint contact in collision.contacts)
+        {
+            Debug.DrawRay(contact.point, contact.normal, Color.white);
+        }
+        if (collision.relativeVelocity.magnitude > 2)
+            audioSource.Play();*/
+        //// codigo para sumar turnos de algun al lado luego de la colison al final del lance de algun lado
+        //// pero pueden haber muchas colisiones y se descontrola el incremento de turnos
+        /*if( turno == TURNO_PLAYER ){
+            turnosPlayer++;
+        } else {
+            sumarTurnosParaCPU();
+        }*/   
+    }
+    void sumarTurnosParaCPU(){
+        if(  turnosCPU < turnosPlayer){
+             turnosCPU++; 
+        }
+    }
+    bool verificarEsLanzamientoPlayer(){
+        SpriteRenderer spritePlayer = GameObject.Find (NOMBRE_PLAYER).gameObject.GetComponent<SpriteRenderer>();
+        if (spritePlayer.sortingOrder == 3  ){
+            return true;
+        }
+        return false;
+    }
+    void reposicionarTejo(){
+        GameObject.Find (NOMBRE_TEJO).GetComponent<Transform>().position += Vector3.forward * 10;
+        //transform.position += Vector3.forward * Time.deltaTime;
+        Rigidbody2D rbTejo = GameObject.Find (NOMBRE_TEJO).GetComponent<Rigidbody2D>();
+        //rbTejo.bodyType = RigidbodyType2D.Kinematic;
+        //rbTejo.velocity = Vector3.zero;
+    }
+    void desactivarColliderTejo(){
+         GameObject.Find (NOMBRE_TEJO).GetComponent<BoxCollider2D>().enabled = false;
+         /// otra idea seria desactivar todas las mechas y activarlas nuevamente para que el tejo se siga viendo sobre la arcilla mientras empieza el otro turno
+         //// mientras tanto 
+         GameObject.Find (NOMBRE_TEJO).GetComponent<Transform>().position += Vector3.right * 10;
+    }
+    void desactivarColliderMechas(){
+         GameObject.Find (NOMBRE_MECHA_1).GetComponent<PolygonCollider2D>().enabled = false;
+         GameObject.Find (NOMBRE_MECHA_3).GetComponent<PolygonCollider2D>().enabled = false;
+         GameObject.Find (NOMBRE_MECHA_BOCIN).GetComponent<PolygonCollider2D>().enabled = false;
+    }
+    void relentizarTejo(){
+        Rigidbody2D rbTejo = GameObject.Find (NOMBRE_TEJO).GetComponent<Rigidbody2D>();
+        //rbTejo.bodyType = RigidbodyType2D.Kinematic;
+        rbTejo.velocity = Vector3.zero;
+    }
+    void activarColliderMechas(){
+         GameObject.Find (NOMBRE_MECHA_1).GetComponent<PolygonCollider2D>().enabled = true;
+         GameObject.Find (NOMBRE_MECHA_3).GetComponent<PolygonCollider2D>().enabled = true;
+         GameObject.Find (NOMBRE_MECHA_BOCIN).GetComponent<PolygonCollider2D>().enabled = true;
+    }
+    void nuevoIntento(){
+        Debug.Log ("**** en nuevoIntento turnos player "+turnosPlayer);
+        ///turno = TURNO_PLAYER;/// se trajo del update para ver si resuelve un bug, genero otro bug peor
+        activarColliderMechas();
+        SpriteRenderer spriteCPU = GameObject.Find (NOMBRE_CPU).gameObject.GetComponent<SpriteRenderer>();
+        spriteCPU.sortingOrder = 0;
+        SpriteRenderer spritePlayer = GameObject.Find (NOMBRE_PLAYER).gameObject.GetComponent<SpriteRenderer>();
+        spritePlayer.sortingOrder = 3;
+        Quaternion target = Quaternion.Euler(0, 0, -40);
+        Animator animTejo = GameObject.Find (NOMBRE_TEJO).GetComponent<Animator>();
+        GameObject.Find (NOMBRE_TEJO).GetComponent<Transform>().position = posicionInicialTejo;
+        Animator animPlayer = GameObject.Find (NOMBRE_PLAYER).GetComponent<Animator>();
+        AnimatorStateInfo currentBaseStateTejo = animTejo.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo currentBaseStatePlayer = animPlayer.GetCurrentAnimatorStateInfo(0);
+        Rigidbody2D rbTejo = GameObject.Find (NOMBRE_TEJO).GetComponent<Rigidbody2D>();
+        Transform transformTejo =  GameObject.Find (NOMBRE_TEJO).GetComponent<Transform>();
+        rbTejo.bodyType = RigidbodyType2D.Kinematic;
+        rbTejo.velocity = Vector3.zero;
+        //rbTejo.angularVelocity = 0;
+        float smooth = 4f;
+        //rbTejo.Sleep();
+        transformTejo.rotation = Quaternion.Slerp(transformTejo.rotation, target,  Time.deltaTime * smooth);
+        animTejo.SetBool(BOOL_TEJO_EN_AIRE,false);
+        ///animPlayer.SetBool(BOOL_ACTIVAR_LANCE,false); /// se pone false en el oncollision
+        animPlayer.SetBool(BOOL_FIN_LANCE,true);
+        animPlayer.SetBool(BOOL_NUEVO_INTENTO,true);
+        
+        /// preparando para que el nuevo intento de la cpu se pueda
+        Animator animCPU = GameObject.Find (NOMBRE_CPU).GetComponent<Animator>();
+        animCPU.SetBool(BOOL_ACTIVAR_LANCE_CPU,false);///
+        animCPU.SetBool(BOOL_NUEVO_INTENTO,true); 
+        scriptTejo script = GameObject.Find ("tejoVistaSup800b").GetComponent<scriptTejo>();
+        script.setCanDrag(true);
+        GameObject.Find ( NOMBRE_TEJO_GUIA ).GetComponent<Collider2D>().enabled = true;
+        Text textScoreMecha = GameObject.Find(TEXT_SCORE_MECHA).GetComponent<Text>();
+        textScoreMecha.text = "";
+        turnosPlayer++;/// se va mover al final luego q se cumpla la colision
+        Debug.Log ("**** en fin nuevoIntento turnos player "+turnosPlayer);
+    }
+    void activarLanceCPU(){
+        Debug.Log ("**** en activarLanceCPU ");
+        //GameObject.Find (NOMBRE_PLAYER).gameObject.SetActive(false);
+        //GameObject.Find (NOMBRE_CPU).SetActive(true);
+        activarColliderMechas();
+        SpriteRenderer spriteCPU = GameObject.Find (NOMBRE_CPU).gameObject.GetComponent<SpriteRenderer>();
+        spriteCPU.sortingOrder = 3;
+        SpriteRenderer spritePlayer = GameObject.Find (NOMBRE_PLAYER).gameObject.GetComponent<SpriteRenderer>();
+        spritePlayer.sortingOrder = 0;
+        GameObject.Find (NOMBRE_TEJO).GetComponent<Transform>().position = posicionInicialTejo;
+        Animator animCPU = GameObject.Find (NOMBRE_CPU).GetComponent<Animator>();
+       
+        scriptLanceTejo script = GameObject.Find (NOMBRE_CPU).GetComponent<scriptLanceTejo>();
+        Vector3 dis = new Vector3(-1.9f,-0.5f,0.0f);
+        int maxVel = 15;
+        //maxVel = Mathf.RoundToInt(Random.Range(10.0f, 15.0f));
+        Rigidbody2D rbTejo = GameObject.Find (NOMBRE_TEJO).GetComponent<Rigidbody2D>();
+        rbTejo.bodyType = RigidbodyType2D.Kinematic;
+        script.copiarValores(dis, maxVel );
+        //Invoke("nuevoIntento",1);
+        /// se deja la activacion del lance despues de la copia de los valores para ver si los toma y no hace un lance con 0s
+        animCPU.SetBool(BOOL_ACTIVAR_LANCE_CPU,true);/// 
+        animCPU.SetBool(BOOL_FIN_LANCE_CPU,true);///
+        //// se va pasar este codigo al final de lance q seria en la logica de la colision
+        if(  turnosCPU < turnosPlayer){
+             turnosCPU++; 
+        }
+        //Invoke("ejecutarLanceCPU",1);
+    }
+    void ejecutarLanceCPU(){
+        Animator animCPU = GameObject.Find (NOMBRE_CPU).GetComponent<Animator>();
+        /// se deja la activacion del lance despues de la copia de los valores para ver si los toma y no hace un lance con 0s
+        animCPU.SetBool(BOOL_ACTIVAR_LANCE_CPU,true);/// 
+        animCPU.SetBool(BOOL_FIN_LANCE_CPU,true);/// 
+    }
+    string getActualEstado( AnimatorStateInfo currentBaseState){
+        if( currentBaseState.nameHash == stateLanzando){
+            return "lanzando";
+        }
+        if( currentBaseState.nameHash == stateReposo  ){
+            return "reposo";
+        }
+        if( currentBaseState.nameHash == stateIdle  ){
+            return "idle";
+        }
+        return null;
+    }
+}

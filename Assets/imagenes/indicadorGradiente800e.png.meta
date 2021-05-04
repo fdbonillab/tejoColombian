@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 0dc14eefa84f34d4e89bed6262d0cf27
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5668123584378666898
+    second: fuerza1
+  - first:
+      213: -8969273587738508472
+    second: fuerza2
+  - first:
+      213: 480402589881310845
+    second: fuerza3
+  - first:
+      213: 3195216447326271228
+    second: fuerza4
+  - first:
+      213: -1082405961893032058
+    second: fuerza5
+  - first:
+      213: 7742723844219177779
+    second: fuerza6
+  - first:
+      213: 8137451049710705155
+    second: fuerza7
+  - first:
+      213: -6267157194416987575
+    second: fuerza8
+  - first:
+      213: 5417208966785897009
+    second: indicadorGradiente800e_8
+  - first:
+      213: 6435495781716720960
+    second: indicadorGradiente800e_9
+  - first:
+      213: 3392163569665705757
+    second: indicadorGradiente800e_10
+  - first:
+      213: -4561556044340508170
+    second: indicadorGradiente800e_11
+  - first:
+      213: 7574543211577068355
+    second: indicadorGradiente800e_12
+  - first:
+      213: 62538722134906596
+    second: indicadorGradiente800e_13
+  - first:
+      213: 3588469569763726448
+    second: indicadorGradiente800e_14
+  - first:
+      213: 5890488313259156130
+    second: indicadorGradiente800e_15
+  - first:
+      213: 9098446512530049910
+    second: indicadorGradiente800e_16
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fuerza1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 150
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43bc128fca57aca42940b91f2bf8ddc0
+      internalID: -5668123584378666898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuerza2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 154
+        width: 39
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b7825658c776bb4eba808e75f7099ed
+      internalID: -8969273587738508472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuerza3
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 150
+        width: 54
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74711822627e2c04ab27ae504e223c19
+      internalID: 480402589881310845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuerza4
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 150
+        width: 72
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f74394c58af0c4187955e59576e14b
+      internalID: 3195216447326271228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuerza5
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 150
+        width: 87
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f60d58f9708dd46bfb1b07d243aea4
+      internalID: -1082405961893032058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuerza6
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 150
+        width: 103
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1855dd639c6c4fb4681d7b4d556977a1
+      internalID: 7742723844219177779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuerza7
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 150
+        width: 120
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f87972c5123bc448dc8cab91fc847c
+      internalID: 8137451049710705155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuerza8
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 150
+        width: 136
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42ab0fda2f863b4b8fd0d5100feec28
+      internalID: -6267157194416987575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: indicadorGradiente800e_8
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 71
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7aed8aa94956746b01797ff9f19746
+      internalID: 5417208966785897009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: indicadorGradiente800e_9
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 69
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd61ab4d969b0b47ba6fbb6676cf497
+      internalID: 6435495781716720960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: indicadorGradiente800e_10
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 31
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f3fd419f5979942a4e4c3bd2dc27d3
+      internalID: 3392163569665705757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: indicadorGradiente800e_11
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 69
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf66d1d80aadfd9438b9dd70aca70a08
+      internalID: -4561556044340508170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: indicadorGradiente800e_12
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 71
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f87b51f8bb076346ad482bf9f6535d1
+      internalID: 7574543211577068355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: indicadorGradiente800e_13
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 71
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328f62d45ddc54d4a9b83d9364e610ad
+      internalID: 62538722134906596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: indicadorGradiente800e_14
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 71
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa5d2b3b38a24dd44a5fb98c6154ac24
+      internalID: 3588469569763726448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: indicadorGradiente800e_15
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 71
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7884f5eaaca4f994489f24257022611f
+      internalID: 5890488313259156130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: indicadorGradiente800e_16
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 71
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c5e5081fcdcf6f458b035becb3d1963
+      internalID: 9098446512530049910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0f6ca56527a51e34cb08984b4269c1d9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

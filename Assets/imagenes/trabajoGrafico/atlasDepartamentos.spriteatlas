@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: atlasDepartamentos
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: d903fbebfc79d8a4bb6a81178f4ce375, type: 3}
+    totalSpriteSurfaceArea: 373600
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 24168f10e2f37eb41bebd5def807d924, type: 3}
+  - {fileID: 21300000, guid: 273dab50eb54b0741b8f49b59f0fe22a, type: 3}
+  - {fileID: 21300000, guid: 6bd6a080a37bb1f438ad3c3f1fa6c5b2, type: 3}
+  - {fileID: 21300000, guid: 22a87da0f2953f04c9af1949df54e2e4, type: 3}
+  - {fileID: 21300000, guid: aaf683d022836f443906afa08292b319, type: 3}
+  - {fileID: 21300000, guid: 3788985190c31a14eaf14cbbe77fc6db, type: 3}
+  - {fileID: 21300000, guid: 6012d3d150291214cbb9e9987321dd5a, type: 3}
+  - {fileID: 21300000, guid: 4b240f12d8ec9a94d83635ea2ba2d7c2, type: 3}
+  - {fileID: 21300000, guid: 62c00572d880fb34f9644dc12f5c506b, type: 3}
+  - {fileID: 21300000, guid: dc828b72ea683e9409d21aa3b9751013, type: 3}
+  - {fileID: 21300000, guid: eea08382de8f3b843854fea81ea8e890, type: 3}
+  - {fileID: 21300000, guid: 7fcb7cf21fd7cbc439407f8b3c88a9e9, type: 3}
+  - {fileID: 21300000, guid: dca4d653d34dd464b8b63a2ffadc6817, type: 3}
+  - {fileID: 21300000, guid: 66d7c5c3ae400b847a4ac62671ff77bd, type: 3}
+  - {fileID: 21300000, guid: 9c6356e3aa511a2459b38060d16f9c5e, type: 3}
+  - {fileID: 21300000, guid: f3a5cc84ad1aded48b544425af0fe891, type: 3}
+  - {fileID: 21300000, guid: 817b16943ff6cd6429e6fe0c929f5f23, type: 3}
+  - {fileID: 21300000, guid: 3973d075d789eb44aa6bce45a8080c3d, type: 3}
+  - {fileID: 21300000, guid: c1b2272637f67d442a5d327d0bb9db1a, type: 3}
+  - {fileID: 21300000, guid: cb32d06684a130843ac93b41c13e0a0c, type: 3}
+  - {fileID: 21300000, guid: 6ee6a837453b6cb4faefc417a561e464, type: 3}
+  - {fileID: 21300000, guid: 1de9baf7a9928044bb8f438654e4dc4b, type: 3}
+  - {fileID: 21300000, guid: f333e428b67ee594abd4756543cfa92a, type: 3}
+  - {fileID: 21300000, guid: a418cbf8873f3b54581c60cbb01268ce, type: 3}
+  - {fileID: 21300000, guid: ff508239857e70149b25425dbbe73777, type: 3}
+  - {fileID: 21300000, guid: 50b563a9297bd3149a827e092aa06b93, type: 3}
+  - {fileID: 21300000, guid: c18e6d9ac5276f8419e5c15316b838d4, type: 3}
+  - {fileID: 21300000, guid: 34c6a92b3d1f423478c2d766bbc513e4, type: 3}
+  - {fileID: 21300000, guid: 77a03f2bea677ef49bbfade0397c8998, type: 3}
+  - {fileID: 21300000, guid: d8052e0c09fa0b342b13e5c6c53ec366, type: 3}
+  - {fileID: 21300000, guid: d5bc0e1deb086224599fa5bb9605f2ba, type: 3}
+  - {fileID: 21300000, guid: 044d5a0e6fb9ddc4d9ebc4e826559457, type: 3}
+  - {fileID: 21300000, guid: ce4e4cbeeffe90f4f94bdb19b7e1f8cf, type: 3}
+  - {fileID: 21300000, guid: 4f777bdfa23dad144ad6afda62c7b686, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - 150px-Flag_of_Caldas.svg
+  - 100px-Flag_of_Putumayo.svg
+  - 150px-Flag_of_Casanare.svg
+  - 100px-Flag_of_Meta.svg
+  - Flag_of_Cundinamarca.svg
+  - "150px-Flag_of_Atl\xE1ntico.svg"
+  - 100px-Flag_of_Valle_del_Cauca.svg
+  - "150px-Flag_of_Bol\xEDvar_(Colombia).svg"
+  - "100px-Flag_of_Bogot\xE1.svg"
+  - "Flag_of_San_Andr\xE9s_y_Providencia.svg"
+  - Flag_of_Antioquia_Department.svg
+  - "100px-Flag_of_Vaup\xE9s.svg"
+  - 100px-Flag_of_La_Guajira.svg
+  - "Flag_of_Boyac\xE1_Department.svg"
+  - 100px-Flag_of_Santander_(Colombia).svg
+  - 150px-Flag_of_Meta.svg
+  - "100px-Flag_of_Quind\xEDo.svg"
+  - 100px-Flag_of_Norte_de_Santander.svg
+  - 100px-Flag_of_Magdalena.svg
+  - Flag_of_Sucre_(Colombia).svg
+  - "100px-Flag_of_Nari\xF1o.svg"
+  - 150px-Flag_of_Arauca.svg
+  - 150px-Flag_of_Cauca.svg
+  - "150px-Flag_of_Choc\xF3.svg"
+  - "150px-Flag_of_C\xF3rdoba.svg"
+  - 100px-Flag_of_Vichada.svg
+  - "150px-Flag_of_Guain\xEDa.svg"
+  - 150px-Flag_of_Guaviare.svg
+  - 100px-Flag_of_Risaralda.svg
+  - 150px-Flag_of_Cesar.svg
+  - 100px-Flag_of_Tolima.svg
+  - 150px-Flag_of_Huila.svg
+  - "150px-Flag_of_Caquet\xE1.svg"
+  - Flag_of_Amazonas_(Colombia).svg
+  m_Tag: atlasDepartamentos
+  m_IsVariant: 0
