@@ -4,17 +4,10 @@ retomarlo, pero si alguien tiene tiempo tenia como 10 mil descargaras antes q lo
 The game of tejo o turmeque is the Colombian national sport that looks like other games from abroad but none of them are exactly the same as the one played in Colombia. They took it from the play store and I haven't had time to
 take it back, but if someone has time, I had like 10 thousand downloads before they downloaded it, and the competition's one is not angry birds style
 
-https://www.youtube.com/watch?v=VsAbEqJHFlM
-
-https://www.youtube.com/watch?v=VsAbEqJHFlM
+[![Mira el video en YouTube](https://github.com/fdbonillab/tejoColombian/blob/master/trabajoGrafico/tejoMiniatura.PNG)](https://www.youtube.com/watch?v=VsAbEqJHFlM)
 
 
-[![Mira el video en YouTube](https://github.com/fdbonillab/tejoColombian/trabajoGrafico/trabajoGrafico/tejoMiniatura.PNG)](https://www.youtube.com/watch?v=VsAbEqJHFlM)
+<a href="https://www.youtube.com/watch?v=VsAbEqJHFlM">
+  <img src="https://github.com/fdbonillab/tejoColombian/blob/master/trabajoGrafico/tejoMiniatura.PNG" alt="Mira el video en YouTube" width="500"/>
+</a>
 
-https://www.youtube.com/watch?v=tGIlcWrdKH8
-
-[Mira este video en YouTube](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-
-o con miniatura:
-
-[![Mira el video en YouTube](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
