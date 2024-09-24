@@ -9,7 +9,7 @@ https://www.youtube.com/watch?v=VsAbEqJHFlM
 https://www.youtube.com/watch?v=VsAbEqJHFlM
 
 
-[![Mira el video en YouTube](https://www.youtube.com/watch?v=VsAbEqJHFlM/0.jpg)](https://www.youtube.com/watch?v=VsAbEqJHFlM)
+[![Mira el video en YouTube](https://github.com/fdbonillab/tejoColombian/trabajoGrafico/trabajoGrafico/tejoMiniatura.PNG)](https://www.youtube.com/watch?v=VsAbEqJHFlM)
 
 https://www.youtube.com/watch?v=tGIlcWrdKH8
 
